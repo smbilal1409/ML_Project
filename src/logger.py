@@ -23,3 +23,9 @@ logging.basicConfig(
 
 # Create a logger object
 logger = logging.getLogger(__name__)
+
+print("Logger imported")
+print("Log file:", LOG_FILE_PATH)
+print("Handlers:", logger.handlers)
+print("Has Handlers:", logger.hasHandlers())
+logger.info("Logger is working!")
