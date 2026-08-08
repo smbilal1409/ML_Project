@@ -1,0 +1,403 @@
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+
+    background: #f5f7fb;
+
+    color: #1f2937;
+
+    min-height: 100vh;
+}
+
+
+
+/* ---------------- HEADER ---------------- */
+
+header {
+
+    height: 70px;
+
+    background: white;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 7%;
+}
+
+
+.logo {
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+    color: #2563eb;
+}
+
+
+.status {
+
+    color: #16a34a;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+
+/* ---------------- MAIN ---------------- */
+
+main {
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 50px 25px;
+}
+
+
+
+/* ---------------- HERO ---------------- */
+
+.hero {
+
+    margin-bottom: 30px;
+}
+
+
+.hero h1 {
+
+    font-size: 38px;
+
+    color: #111827;
+
+    margin-bottom: 10px;
+}
+
+
+.hero h1 span {
+
+    color: #2563eb;
+}
+
+
+.hero p {
+
+    color: #6b7280;
+
+    line-height: 1.6;
+
+    max-width: 650px;
+}
+
+
+
+/* ---------------- DASHBOARD ---------------- */
+
+.dashboard {
+
+    display: grid;
+
+    grid-template-columns: 1.4fr 1fr;
+
+    gap: 25px;
+}
+
+
+
+/* ---------------- CARD ---------------- */
+
+.card {
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+
+.card h2 {
+
+    font-size: 21px;
+
+    margin-bottom: 7px;
+
+    color: #111827;
+}
+
+
+.subtitle {
+
+    color: #6b7280;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+
+/* ---------------- FORM ---------------- */
+
+.form-group {
+
+    margin-bottom: 18px;
+}
+
+
+label {
+
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 7px;
+
+    color: #374151;
+}
+
+
+select,
+input {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 9px;
+
+    background: white;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+
+select:focus,
+input:focus {
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+
+/* ---------------- BUTTON ---------------- */
+
+button {
+
+    width: 100%;
+
+    margin-top: 7px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+button:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+
+
+/* ---------------- RESULT ---------------- */
+
+.result-card {
+
+    min-height: 500px;
+}
+
+
+.score-box {
+
+    margin-top: 30px;
+
+    padding: 40px 20px;
+
+    text-align: center;
+
+    background: #eff6ff;
+
+    border-radius: 14px;
+}
+
+
+.score {
+
+    font-size: 60px;
+
+    font-weight: 800;
+
+    color: #2563eb;
+}
+
+
+.out-of {
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+.message {
+
+    margin-top: 25px;
+
+    text-align: center;
+
+    color: #4b5563;
+
+    line-height: 1.6;
+}
+
+
+
+/* ---------------- EMPTY RESULT ---------------- */
+
+.empty-result {
+
+    min-height: 350px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    color: #6b7280;
+}
+
+
+.icon {
+
+    font-size: 50px;
+
+    margin-bottom: 20px;
+}
+
+
+.empty-result p {
+
+    max-width: 280px;
+
+    line-height: 1.6;
+}
+
+
+
+/* ---------------- FOOTER ---------------- */
+
+footer {
+
+    text-align: center;
+
+    padding: 25px;
+
+    background: white;
+
+    border-top: 1px solid #e5e7eb;
+
+    color: #9ca3af;
+
+    font-size: 13px;
+}
+
+
+footer span {
+
+    margin: 0 8px;
+}
+
+
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 800px) {
+
+    .dashboard {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .hero h1 {
+
+        font-size: 30px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    main {
+
+        padding: 30px 15px;
+    }
+
+
+    header {
+
+        padding: 0 20px;
+    }
+
+
+    .card {
+
+        padding: 20px;
+    }
+
+}
+```

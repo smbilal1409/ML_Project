@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Math Score Predictor</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+    <header>
+
+        <div class="logo">
+            MathScore prediction
+        </div>
+
+        <div class="status">
+            ● Model Online
+        </div>
+
+    </header>
+
+
+
+    <!-- Main Container -->
+
+    <main>
+
+        <section class="hero">
+
+            <h1>
+                Student Math Score
+                <span>Predictor</span>
+            </h1>
+
+            <p>
+                Enter the student's information below to
+                predict their mathematics score using
+                machine learning.
+            </p>
+
+        </section>
+
+
+
+        <div class="dashboard">
+
+
+            <!-- Input Card -->
+
+            <div class="card">
+
+                <h2>
+                    Student Information
+                </h2>
+
+                <p class="subtitle">
+                    Enter the required information
+                </p>
+
+
+                <form method="POST">
+
+
+                    <!-- Gender -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Gender
+                        </label>
+
+                        <select name="gender" required>
+
+                            <option value="">
+                                Select gender
+                            </option>
+
+                            <option value="male">
+                                Male
+                            </option>
+
+                            <option value="female">
+                                Female
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- Race -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Race / Ethnicity
+                        </label>
+
+                        <select
+                            name="race_ethnicity"
+                            required
+                        >
+
+                            <option value="">
+                                Select group
+                            </option>
+
+                            <option value="group A">
+                                Group A
+                            </option>
+
+                            <option value="group B">
+                                Group B
+                            </option>
+
+                            <option value="group C">
+                                Group C
+                            </option>
+
+                            <option value="group D">
+                                Group D
+                            </option>
+
+                            <option value="group E">
+                                Group E
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- Parental Education -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Parental Education
+                        </label>
+
+                        <select
+                            name="parental_level_of_education"
+                            required
+                        >
+
+                            <option value="">
+                                Select education
+                            </option>
+
+                            <option value="some high school">
+                                Some High School
+                            </option>
+
+                            <option value="high school">
+                                High School
+                            </option>
+
+                            <option value="some college">
+                                Some College
+                            </option>
+
+                            <option value="associate's degree">
+                                Associate's Degree
+                            </option>
+
+                            <option value="bachelor's degree">
+                                Bachelor's Degree
+                            </option>
+
+                            <option value="master's degree">
+                                Master's Degree
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- Lunch -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Lunch
+                        </label>
+
+                        <select name="lunch" required>
+
+                            <option value="">
+                                Select lunch type
+                            </option>
+
+                            <option value="standard">
+                                Standard
+                            </option>
+
+                            <option value="free/reduced">
+                                Free / Reduced
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- Test Preparation -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Test Preparation
+                        </label>
+
+                        <select
+                            name="test_preparation_course"
+                            required
+                        >
+
+                            <option value="">
+                                Select option
+                            </option>
+
+                            <option value="none">
+                                None
+                            </option>
+
+                            <option value="completed">
+                                Completed
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- Reading Score -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Reading Score
+                        </label>
+
+                        <input
+                            type="number"
+                            name="reading_score"
+                            min="0"
+                            max="100"
+                            placeholder="Enter reading score"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- Writing Score -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Writing Score
+                        </label>
+
+                        <input
+                            type="number"
+                            name="writing_score"
+                            min="0"
+                            max="100"
+                            placeholder="Enter writing score"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- Button -->
+
+                    <button type="submit">
+
+                        Predict Math Score
+
+                    </button>
+
+
+                </form>
+
+            </div>
+
+
+
+            <!-- Result Card -->
+
+            <div class="card result-card">
+
+                <h2>
+                    Prediction
+                </h2>
+
+                <p class="subtitle">
+                    Your predicted mathematics score
+                </p>
+
+
+                {% if prediction is not none %}
+
+                    <div class="score-box">
+
+                        <div class="score">
+                            {{ prediction }}
+                        </div>
+
+                        <div class="out-of">
+                            out of 100
+                        </div>
+
+                    </div>
+
+
+                    {% if prediction >= 80 %}
+
+                        <p class="message">
+                            Excellent predicted performance!
+                        </p>
+
+                    {% elif prediction >= 60 %}
+
+                        <p class="message">
+                            Good predicted performance.
+                        </p>
+
+                    {% elif prediction >= 40 %}
+
+                        <p class="message">
+                            Average predicted performance.
+                        </p>
+
+                    {% else %}
+
+                        <p class="message">
+                            Additional preparation may help
+                            improve the predicted score.
+                        </p>
+
+                    {% endif %}
+
+
+                {% else %}
+
+                    <div class="empty-result">
+
+                        <div class="icon">
+                            📊
+                        </div>
+
+                        <p>
+                            Enter the student's information
+                            and click the prediction button.
+                        </p>
+
+                    </div>
+
+                {% endif %}
+
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+
+    <footer>
+
+        MathScore AI
+        <span>•</span>
+        Machine Learning Student Performance Prediction
+
+    </footer>
+
+
+</body>
+
+</html>
+```

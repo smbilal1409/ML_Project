@@ -8,4 +8,5 @@ ipykernel
 xgboost 
 scipy 
 flask
+dill
 # -e .
